@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func reverseArray(names [4]string) [4]string {
@@ -60,10 +61,9 @@ func (l *LinkedList) prepend(data int) {
 
 	if l.head != nil {
 		newNode.next = l.head
-		l.head = &newNode
-	} else {
-		l.head = &newNode
 	}
+
+	l.head = &newNode
 }
 
 func (l *LinkedList) print() {
@@ -283,6 +283,68 @@ func (b *BinaryTree) calculateRecursiveSum() int {
 	return recursiveSum(b.root)
 }
 
+// func performIns(node *BTNode, data int) {
+// 	if data < node.data {
+// 		if node.left == nil {
+// 			node.left = &BTNode{data: data}
+// 		} else {
+// 			performIns(node.left, data)
+// 		}
+// 	} else {
+// 		if node.right == nil {
+
+// 			node.right = &BTNode{data: data}
+// 		} else {
+// 			performIns(node.right, data)
+// 		}
+// 	}
+// }
+
+// func (b *BinaryTree) insertionPrac(data int) {
+// 	if b.root == nil {
+// 		b.root = &BTNode{data: data}
+// 	}
+
+// 	performIns(b.root, data)
+// }
+
+func compareNodes(a, b, c int) int {
+	switch {
+	case a < b && a < c:
+		return a
+	case b < c && b < a:
+		return b
+	default:
+		return c
+	}
+}
+
+func findMin(node *BTNode) int {
+	if node == nil {
+		return math.MaxInt
+	}
+	return compareNodes(node.data, findMin(node.left), findMin(node.right))
+}
+
+func maxRootToLeafPathSum(node *BTNode) int {
+	if node == nil {
+		return math.MinInt
+	}
+
+	if node.left == nil && node.right == nil {
+		return node.data
+	}
+
+	left := maxRootToLeafPathSum(node.left)
+	right := maxRootToLeafPathSum(node.right)
+
+	if left > right {
+		return node.data + left
+	}
+
+	return node.data + right
+}
+
 func main() {
 	reverseArray([4]string{"John", "Doe", "Smith", "Jim"})
 	findMinValue([3]int{3, 2, 1})
@@ -341,4 +403,12 @@ func main() {
 	fmt.Println("Rec Sum----------")
 	recSum := tree.calculateRecursiveSum()
 	fmt.Println(recSum)
+
+	fmt.Println("Min----------")
+	min := findMin(tree.root)
+	fmt.Println(min)
+
+	fmt.Println("Max Root to Leaf path sum----------")
+	maxRTLPSum := maxRootToLeafPathSum(tree.root)
+	fmt.Println(maxRTLPSum)
 }
