@@ -139,3 +139,33 @@ func (ll *LinkedList) Clear() {
 func (ll *LinkedList) IsEmpty() bool {
 	return ll.Head == nil
 }
+
+func (ll *LinkedList) Shift() (int, bool) {
+	if ll.Head == nil {
+		return 0, false
+	}
+	data := ll.Head.Data
+	ll.Head = ll.Head.Next
+	return data, true
+}
+
+func (ll *LinkedList) Pop() (int, bool) {
+	current := ll.Head
+	if current == nil {
+		return 0, false
+	}
+	if current.Next == nil {
+		ll.Head = nil
+		return current.Data, true
+	}
+	var next *Node
+	for current != nil {
+		next = current.Next
+		if next.Next == nil {
+			current.Next = nil
+			break
+		}
+		current = current.Next
+	}
+	return next.Data, true
+}

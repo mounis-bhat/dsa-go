@@ -13,6 +13,7 @@ func TestLinkedList(t *testing.T) {
 	// Helper function to check if the list content matches expected
 	checkList := func(want []int, message string) {
 		got := ll.Display()
+
 		if !reflect.DeepEqual(got, want) {
 			t.Errorf("%s: got %v, want %v", message, got, want)
 		}
@@ -59,6 +60,9 @@ func TestLinkedList(t *testing.T) {
 	// Test Reverse
 	ll.Reverse()
 	checkList([]int{3, 2, 1, 0}, "After Reverse")
+
+	ll.Pop()
+	checkList([]int{3, 2, 1}, "After Pop")
 
 	// Test Clear
 	ll.Clear()
