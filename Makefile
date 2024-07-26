@@ -1,38 +1,54 @@
-# Define the executable name
-BINARY_NAME=dsa-go
+# Go parameters
+GOCMD=go
+GOBUILD=$(GOCMD) build
+GOCLEAN=$(GOCMD) clean
+GOTEST=$(GOCMD) test
+GOGET=$(GOCMD) get
+GOMOD=$(GOCMD) mod
+BINARY_NAME=dsa
 
-# Default target to build the binary
-all: build
+# Main package path
+MAIN_PACKAGE=./cmd
 
-# Build the binary
+# Determine the operating system
+ifeq ($(OS),Windows_NT)
+    BINARY_NAME := $(BINARY_NAME).exe
+    RM := del /Q
+else
+    RM := rm -f
+endif
+
+all: test build
+
 build:
-	@echo "Building the project..."
-	go build -o $(BINARY_NAME)
+	$(GOBUILD) -o $(BINARY_NAME) $(MAIN_PACKAGE)
 
-# Run the binary
+test:
+	$(GOTEST) -v ./...
+
+test-stack:
+	$(GOTEST) -v ./internal/stack
+
+test-queue:
+	$(GOTEST) -v ./internal/queue
+
+test-linkedlist:
+	$(GOTEST) -v ./internal/linkedlist
+
+test-binarytree:
+	$(GOTEST) -v ./internal/binarytree
+
+clean:
+	$(GOCLEAN)
+	$(RM) $(BINARY_NAME)
+
 run: build
-	@echo "Running the project..."
 	./$(BINARY_NAME)
 
-# Clean up the binary
-clean:
-	@echo "Cleaning up..."
-	rm -f $(BINARY_NAME)
-
-# Install dependencies
 deps:
-	@echo "Installing dependencies..."
-	go mod tidy
+	$(GOGET) ./...
 
-# Lint the code
-lint:
-	@echo "Linting the code..."
-	gofmt -l -s -w .
+tidy:
+	$(GOMOD) tidy
 
-# Test the code
-test:
-	@echo "Running tests..."
-	go test ./...
-
-# Phony targets to avoid conflicts with files named clean, build, etc.
-.PHONY: all build run clean deps lint test
+.PHONY: all build test clean run deps tidy
