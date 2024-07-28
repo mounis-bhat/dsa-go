@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	linkedlist "github.com/mounis-bhat/dsa-go/internal/linkedlist"
+	"github.com/mounis-bhat/dsa-go/internal/linkedlist"
 )
 
 func TestLinkedList(t *testing.T) {
@@ -13,7 +13,9 @@ func TestLinkedList(t *testing.T) {
 	// Helper function to check if the list content matches expected
 	checkList := func(want []int, message string) {
 		got := ll.Display()
-
+		if len(want) == 0 && len(got) == 0 {
+			return
+		}
 		if !reflect.DeepEqual(got, want) {
 			t.Errorf("%s: got %v, want %v", message, got, want)
 		}

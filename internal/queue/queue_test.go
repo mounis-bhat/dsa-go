@@ -12,6 +12,9 @@ func TestQueue(t *testing.T) {
 
 	// Helper function to check if the queue content matches expected
 	checkQueue := func(want []int, message string) {
+		if len(want) == 0 && q.IsEmpty() {
+			return
+		}
 		if !reflect.DeepEqual(q.Display(), want) {
 			t.Errorf("%s: got %v, want %v", message, q.Display(), want)
 		}

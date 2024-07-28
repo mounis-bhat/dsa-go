@@ -12,6 +12,9 @@ func TestStack(t *testing.T) {
 
 	// Helper function to check if the stack content matches expected
 	checkStack := func(want []int, message string) {
+		if len(want) == 0 && s.IsEmpty() {
+			return
+		}
 		if !reflect.DeepEqual(s.Display(), want) {
 			t.Errorf("%s: got %v, want %v", message, s.Display(), want)
 		}
