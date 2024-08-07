@@ -38,6 +38,9 @@ test-linkedlist:
 test-binarytree:
 	$(GOTEST) -v ./internal/binarytree
 
+test-avltree:
+	$(GOTEST) -v ./internal/avltree
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
