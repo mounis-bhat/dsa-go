@@ -41,6 +41,12 @@ test-binarytree:
 test-avltree:
 	$(GOTEST) -v ./internal/avltree
 
+test-bubble:
+	$(GOTEST) -v ./internal/bubblesort
+
+test-selection:
+	$(GOTEST) -v ./internal/selectionsort
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
