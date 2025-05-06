@@ -6,7 +6,7 @@ import (
 )
 
 func ContainsDuplicateBF(nums []int) bool {
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		for j := i + 1; j < len(nums); j++ {
 			if nums[i] == nums[j] {
 				return true
@@ -19,7 +19,7 @@ func ContainsDuplicateBF(nums []int) bool {
 func ContainsDuplicateSort(nums []int) bool {
 	sort.Ints(nums)
 
-	for i := 0; i < len(nums)-1; i++ {
+	for i := range len(nums) - 1 {
 		if nums[i] == nums[i+1] {
 			return true
 		}
@@ -31,7 +31,7 @@ func ContainsDuplicateSort(nums []int) bool {
 func ContainsDuplicate(nums []int) bool {
 	numsMap := make(map[int]bool)
 
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		if numsMap[nums[i]] {
 			return true
 		}
@@ -51,7 +51,7 @@ func IsAnagram(s string, t string) bool {
 
 	charCount := make(map[rune]int)
 
-	for i := 0; i < len(s); i++ {
+	for i := range len(s) {
 		charCount[rune(s[i])]++
 		charCount[rune(t[i])]--
 	}
