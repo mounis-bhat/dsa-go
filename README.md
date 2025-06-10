@@ -11,7 +11,6 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 │   ├── avltree/             # AVL Tree implementation
 │   ├── binarytree/          # Binary Search Tree
 │   ├── bubblesort/          # Bubble Sort algorithm
-│   ├── leetcode/            # LeetCode problem solutions
 │   ├── linkedlist/          # Singly Linked List
 │   ├── neetcode150/         # Neetcode 150 problem solutions
 │   ├── queue/               # Queue data structure
@@ -79,21 +78,6 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 - In-place sorting algorithm
 - Finds minimum element and swaps with current position
 
-### LeetCode Solutions
-
-#### Problems Solved ([internal/leetcode](internal/leetcode/leetcode.go))
-
-1. **Contains Duplicate** - Three different approaches:
-
-   - `ContainsDuplicateBF`: Brute Force approach - O(n²) time, O(1) space
-   - `ContainsDuplicateSort`: Sorting approach - O(n log n) time, O(1) space
-   - `ContainsDuplicate`: Hash Map approach - O(n) time, O(n) space
-
-2. **Valid Anagram** (`IsAnagram`):
-   - String manipulation and character frequency counting
-   - Case-insensitive comparison with space handling
-   - Time Complexity: O(n), Space Complexity: O(1)
-
 ### Neetcode 150 Solutions
 
 A comprehensive collection of coding interview problems from the popular [Neetcode 150](https://neetcode.io/) list.
@@ -101,10 +85,17 @@ A comprehensive collection of coding interview problems from the popular [Neetco
 #### Problems Solved ([internal/neetcode150](internal/neetcode150/))
 
 1. **Two Sum** (`TwoSum`):
+
    - Find two numbers in array that add up to target
    - Hash map approach for optimal solution
    - Time Complexity: O(n), Space Complexity: O(n)
    - Handles edge cases: negative numbers, duplicates, minimum array size
+
+2. **Valid Anagram** (`ValidAnagram`):
+   - Check if two strings are anagrams of each other
+   - Character frequency counting approach
+   - Time Complexity: O(n), Space Complexity: O(1)
+   - Handles edge cases: empty strings, different lengths, repeated characters
 
 ### Utility Functions ([pkg/utils](pkg/utils/utils.go))
 
@@ -155,6 +146,10 @@ make test-avltree
 make test-bubble
 make test-selection
 make test-neetcode150
+
+# Run specific Neetcode150 problem tests
+make test-two-sum
+make test-valid-anagram
 ```
 
 ### Running the Application
@@ -207,20 +202,12 @@ go test -cover ./...
 | Bubble Sort    | O(n)      | O(n²)        | O(n²)      | O(1)  |
 | Selection Sort | O(n²)     | O(n²)        | O(n²)      | O(1)  |
 
-### LeetCode Solutions
-
-| Problem            | Solution        | Time Complexity | Space Complexity |
-| ------------------ | --------------- | --------------- | ---------------- |
-| Contains Duplicate | Brute Force     | O(n²)           | O(1)             |
-| Contains Duplicate | Sorting         | O(n log n)      | O(1)             |
-| Contains Duplicate | Hash Map        | O(n)            | O(n)             |
-| Valid Anagram      | Character Count | O(n)            | O(1)             |
-
 ### Neetcode 150 Solutions
 
-| Problem | Solution | Time Complexity | Space Complexity |
-| ------- | -------- | --------------- | ---------------- |
-| Two Sum | Hash Map | O(n)            | O(n)             |
+| Problem       | Solution        | Time Complexity | Space Complexity |
+| ------------- | --------------- | --------------- | ---------------- |
+| Two Sum       | Hash Map        | O(n)            | O(n)             |
+| Valid Anagram | Character Count | O(n)            | O(1)             |
 
 ## 🎯 Usage Examples
 
@@ -254,6 +241,12 @@ target := 9
 indices := neetcode150.TwoSum(nums, target) // Returns [0, 1]
 fmt.Printf("nums[%d] + nums[%d] = %d + %d = %d\n",
     indices[0], indices[1], nums[indices[0]], nums[indices[1]], target)
+
+// Valid Anagram problem
+s1 := "anagram"
+s2 := "nagaram"
+isAnagram := neetcode150.ValidAnagram(s1, s2) // Returns true
+fmt.Printf("'%s' and '%s' are anagrams: %v\n", s1, s2, isAnagram)
 ```
 
 ### Utility Functions Example

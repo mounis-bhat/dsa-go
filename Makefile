@@ -50,6 +50,12 @@ test-selection:
 test-neetcode150:
 	$(GOTEST) -v ./internal/neetcode150
 
+test-two-sum:
+	$(GOTEST) -v ./internal/neetcode150 -run TestTwoSum
+
+test-valid-anagram:
+	$(GOTEST) -v ./internal/neetcode150 -run TestValidAnagram
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
@@ -63,4 +69,4 @@ deps:
 tidy:
 	$(GOMOD) tidy
 
-.PHONY: all build test clean run deps tidy
+.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram
