@@ -1,8 +1,6 @@
 package neetcode150
 
-import (
-	"strings"
-)
+import "strings"
 
 // ValidAnagram checks if two strings are anagrams of each other
 // An anagram is a word or phrase formed by rearranging the letters of another,
