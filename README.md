@@ -91,7 +91,14 @@ A comprehensive collection of coding interview problems from the popular [Neetco
    - Time Complexity: O(n), Space Complexity: O(n)
    - Handles edge cases: negative numbers, duplicates, minimum array size
 
-2. **Valid Anagram** (`ValidAnagram`):
+2. **Two Sum II - Input Array Is Sorted** (`TwoSumII`):
+
+   - Find two numbers in sorted array that add up to target (1-indexed)
+   - Two pointers approach for optimal solution
+   - Time Complexity: O(n), Space Complexity: O(1)
+   - Leverages sorted array property for efficient scanning
+
+3. **Valid Anagram** (`ValidAnagram`):
    - Check if two strings are anagrams of each other
    - Character frequency counting approach
    - Time Complexity: O(n), Space Complexity: O(1)
@@ -149,6 +156,7 @@ make test-neetcode150
 
 # Run specific Neetcode150 problem tests
 make test-two-sum
+make test-two-sum-ii
 make test-valid-anagram
 ```
 
@@ -204,10 +212,11 @@ go test -cover ./...
 
 ### Neetcode 150 Solutions
 
-| Problem       | Solution        | Time Complexity | Space Complexity |
-| ------------- | --------------- | --------------- | ---------------- |
-| Two Sum       | Hash Map        | O(n)            | O(n)             |
-| Valid Anagram | Character Count | O(n)            | O(1)             |
+| Problem           | Solution        | Time Complexity | Space Complexity |
+| ----------------- | --------------- | --------------- | ---------------- |
+| Two Sum           | Hash Map        | O(n)            | O(n)             |
+| Two Sum II        | Two Pointers    | O(n)            | O(1)             |
+| Valid Anagram     | Character Count | O(n)            | O(1)             |
 
 ## 🎯 Usage Examples
 
@@ -241,6 +250,13 @@ target := 9
 indices := neetcode150.TwoSum(nums, target) // Returns [0, 1]
 fmt.Printf("nums[%d] + nums[%d] = %d + %d = %d\n",
     indices[0], indices[1], nums[indices[0]], nums[indices[1]], target)
+
+// Two Sum II problem (sorted array, 1-indexed)
+numbers := []int{2, 7, 11, 15}
+target = 9
+indices = neetcode150.TwoSumII(numbers, target) // Returns [1, 2]
+fmt.Printf("numbers[%d] + numbers[%d] = %d + %d = %d\n",
+    indices[0]-1, indices[1]-1, numbers[indices[0]-1], numbers[indices[1]-1], target)
 
 // Valid Anagram problem
 s1 := "anagram"

@@ -56,6 +56,9 @@ test-two-sum:
 test-valid-anagram:
 	$(GOTEST) -v ./internal/neetcode150 -run TestValidAnagram
 
+test-two-sum-ii:
+	$(GOTEST) -v ./internal/neetcode150 -run TestTwoSumII
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
@@ -69,4 +72,4 @@ deps:
 tidy:
 	$(GOMOD) tidy
 
-.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram
+.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram test-two-sum-ii
