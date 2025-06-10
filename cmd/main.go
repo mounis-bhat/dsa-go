@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	indexes := neetcode150.TwoSum([]int{2, 7, 11, 15}, 9)
-	fmt.Println(indexes)
+	isValid := neetcode150.ValidAnagram("art", "rat")
+	fmt.Println(isValid)
 }
