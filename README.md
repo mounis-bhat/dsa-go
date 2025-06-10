@@ -82,27 +82,24 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 
 A comprehensive collection of coding interview problems from the popular [Neetcode 150](https://neetcode.io/) list.
 
-#### Problems Solved ([internal/neetcode150](internal/neetcode150/))
+### Neetcode 150 Solutions
 
-1. **Two Sum** (`TwoSum`):
+A comprehensive collection of coding interview problems from the popular [Neetcode 150](https://neetcode.io/) list.
 
-   - Find two numbers in array that add up to target
-   - Hash map approach for optimal solution
-   - Time Complexity: O(n), Space Complexity: O(n)
-   - Handles edge cases: negative numbers, duplicates, minimum array size
+#### Progress Overview ([internal/neetcode150](internal/neetcode150/))
 
-2. **Two Sum II - Input Array Is Sorted** (`TwoSumII`):
+| # | Problem | Difficulty | Pattern | Time | Space | Status |
+|---|---------|-----------|---------|------|-------|--------|
+| 1 | Two Sum | Easy | Hash Map | O(n) | O(n) | ✅ |
+| 2 | Valid Anagram | Easy | Frequency Count | O(n) | O(1) | ✅ |
+| 3 | Two Sum II | Medium | Two Pointers | O(n) | O(1) | ✅ |
+| 4 | Majority Element | Easy | Boyer-Moore/Hash Map | O(n) | O(1) | 🚧 |
 
-   - Find two numbers in sorted array that add up to target (1-indexed)
-   - Two pointers approach for optimal solution
-   - Time Complexity: O(n), Space Complexity: O(1)
-   - Leverages sorted array property for efficient scanning
+#### Categories Covered:
+- **Arrays & Hashing**: Two Sum, Valid Anagram, Majority Element
+- **Two Pointers**: Two Sum II
 
-3. **Valid Anagram** (`ValidAnagram`):
-   - Check if two strings are anagrams of each other
-   - Character frequency counting approach
-   - Time Complexity: O(n), Space Complexity: O(1)
-   - Handles edge cases: empty strings, different lengths, repeated characters
+For detailed problem descriptions, examples, and approaches, see the individual source files in [`internal/neetcode150/`](internal/neetcode150/).
 
 ### Utility Functions ([pkg/utils](pkg/utils/utils.go))
 
@@ -158,6 +155,7 @@ make test-neetcode150
 make test-two-sum
 make test-two-sum-ii
 make test-valid-anagram
+make test-majority-element
 ```
 
 ### Running the Application
@@ -212,11 +210,12 @@ go test -cover ./...
 
 ### Neetcode 150 Solutions
 
-| Problem           | Solution        | Time Complexity | Space Complexity |
+| Problem           | Pattern         | Time Complexity | Space Complexity |
 | ----------------- | --------------- | --------------- | ---------------- |
 | Two Sum           | Hash Map        | O(n)            | O(n)             |
 | Two Sum II        | Two Pointers    | O(n)            | O(1)             |
-| Valid Anagram     | Character Count | O(n)            | O(1)             |
+| Valid Anagram     | Frequency Count | O(n)            | O(1)             |
+| Majority Element  | Boyer-Moore     | O(n)            | O(1)             |
 
 ## 🎯 Usage Examples
 
@@ -248,21 +247,16 @@ fmt.Println(avl.InOrder()) // [5, 10, 15]
 nums := []int{2, 7, 11, 15}
 target := 9
 indices := neetcode150.TwoSum(nums, target) // Returns [0, 1]
-fmt.Printf("nums[%d] + nums[%d] = %d + %d = %d\n",
-    indices[0], indices[1], nums[indices[0]], nums[indices[1]], target)
 
 // Two Sum II problem (sorted array, 1-indexed)
 numbers := []int{2, 7, 11, 15}
-target = 9
 indices = neetcode150.TwoSumII(numbers, target) // Returns [1, 2]
-fmt.Printf("numbers[%d] + numbers[%d] = %d + %d = %d\n",
-    indices[0]-1, indices[1]-1, numbers[indices[0]-1], numbers[indices[1]-1], target)
 
 // Valid Anagram problem
-s1 := "anagram"
-s2 := "nagaram"
-isAnagram := neetcode150.ValidAnagram(s1, s2) // Returns true
-fmt.Printf("'%s' and '%s' are anagrams: %v\n", s1, s2, isAnagram)
+isAnagram := neetcode150.ValidAnagram("anagram", "nagaram") // Returns true
+
+// Majority Element problem
+majority := neetcode150.MajorityElement([]int{3, 2, 3}) // Returns 3
 ```
 
 ### Utility Functions Example
