@@ -47,6 +47,9 @@ test-bubble:
 test-selection:
 	$(GOTEST) -v ./internal/selectionsort
 
+test-neetcode150:
+	$(GOTEST) -v ./internal/neetcode150
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)

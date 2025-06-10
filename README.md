@@ -13,6 +13,7 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 │   ├── bubblesort/          # Bubble Sort algorithm
 │   ├── leetcode/            # LeetCode problem solutions
 │   ├── linkedlist/          # Singly Linked List
+│   ├── neetcode150/         # Neetcode 150 problem solutions
 │   ├── queue/               # Queue data structure
 │   ├── selectionsort/       # Selection Sort algorithm
 │   └── stack/               # Stack data structure
@@ -93,6 +94,18 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
    - Case-insensitive comparison with space handling
    - Time Complexity: O(n), Space Complexity: O(1)
 
+### Neetcode 150 Solutions
+
+A comprehensive collection of coding interview problems from the popular [Neetcode 150](https://neetcode.io/) list.
+
+#### Problems Solved ([internal/neetcode150](internal/neetcode150/))
+
+1. **Two Sum** (`TwoSum`):
+   - Find two numbers in array that add up to target
+   - Hash map approach for optimal solution
+   - Time Complexity: O(n), Space Complexity: O(n)
+   - Handles edge cases: negative numbers, duplicates, minimum array size
+
 ### Utility Functions ([pkg/utils](pkg/utils/utils.go))
 
 Generic utility functions leveraging Go 1.18+ generics:
@@ -141,6 +154,7 @@ make test-binarytree
 make test-avltree
 make test-bubble
 make test-selection
+make test-neetcode150
 ```
 
 ### Running the Application
@@ -202,6 +216,12 @@ go test -cover ./...
 | Contains Duplicate | Hash Map        | O(n)            | O(n)             |
 | Valid Anagram      | Character Count | O(n)            | O(1)             |
 
+### Neetcode 150 Solutions
+
+| Problem | Solution | Time Complexity | Space Complexity |
+| ------- | -------- | --------------- | ---------------- |
+| Two Sum | Hash Map | O(n)            | O(n)             |
+
 ## 🎯 Usage Examples
 
 ### Stack Example
@@ -223,6 +243,17 @@ avl.Insert(5)
 avl.Insert(15)
 avl.Visualize() // Prints tree structure
 fmt.Println(avl.InOrder()) // [5, 10, 15]
+```
+
+### Neetcode 150 Example
+
+```go
+// Two Sum problem
+nums := []int{2, 7, 11, 15}
+target := 9
+indices := neetcode150.TwoSum(nums, target) // Returns [0, 1]
+fmt.Printf("nums[%d] + nums[%d] = %d + %d = %d\n",
+    indices[0], indices[1], nums[indices[0]], nums[indices[1]], target)
 ```
 
 ### Utility Functions Example
