@@ -5,7 +5,20 @@ package neetcode150
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 func ContainsDuplicateII(nums []int, k int) bool {
-	// TODO: Implement contains duplicate II logic
+	countMap := make(map[int]int)
+
+	for i, v := range nums {
+		savedIndex, exists := countMap[v]
+		if exists && i-savedIndex <= k {
+			return true
+		}
+		countMap[v] = i
+	}
+
+	return false
+}
+
+func ContainsDuplicateIIBurteForce(nums []int, k int) bool {
 	start := 0
 	end := min(k, len(nums)-1)
 
