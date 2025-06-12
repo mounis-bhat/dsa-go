@@ -43,9 +43,12 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 #### 3. **Linked List** ([internal/linkedlist](internal/linkedlist/linked_list.go))
 
 - Singly linked list with comprehensive operations
-- Operations: `Append`, `Prepend`, `Insert`, `Delete`, `Search`, `Reverse`, `Pop`, `Shift`
-- Additional utilities: `Size`, `Clear`, `IsEmpty`, `Get`
-- Time Complexity: Prepend/Append O(1), Search/Delete O(n)
+- **Core Operations**: `Append`, `Prepend`, `Insert`, `Delete`, `Reverse`
+- **Access Methods**: `Get`, `Search`, `Display`
+- **Stack/Queue Operations**: `Pop`, `Shift` (with return values and error handling)
+- **Utility Methods**: `Size`, `Clear`, `IsEmpty`
+- **Error Handling**: Returns boolean success indicators for operations that can fail
+- Time Complexity: Prepend/Append O(1), Insert/Delete/Search O(n), Get O(n)
 
 #### 4. **Binary Search Tree** ([internal/binarytree](internal/binarytree/binary_tree.go))
 
@@ -232,6 +235,28 @@ s.Push(1)
 s.Push(2)
 element, err := s.Pop() // Returns 2
 fmt.Println(s.Display()) // [1]
+```
+
+### Linked List Example
+
+```go
+ll := linkedlist.NewLinkedList()
+ll.Append(1)
+ll.Append(2)
+ll.Prepend(0)
+fmt.Println(ll.Display()) // [0, 1, 2]
+
+ll.Insert(3, 3) // Insert 3 at index 3
+ll.Reverse()
+fmt.Println(ll.Display()) // [3, 2, 1, 0]
+
+element, exists := ll.Pop() // Remove last element
+if exists {
+    fmt.Printf("Popped: %d\n", element) // Popped: 0
+}
+
+index := ll.Search(2) // Find index of value 2
+fmt.Printf("Element 2 is at index: %d\n", index) // Element 2 is at index: 1
 ```
 
 ### AVL Tree Example
