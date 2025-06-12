@@ -6,6 +6,24 @@ package neetcode150
 // Space Complexity: O(n)
 func ContainsDuplicateII(nums []int, k int) bool {
 	// TODO: Implement contains duplicate II logic
+	start := 0
+	end := min(k, len(nums)-1)
+
+	for end < len(nums) {
+		countMap := make(map[int]int)
+		for i := start; i <= end; i++ {
+			countMap[nums[i]]++
+		}
+
+		for _, v := range countMap {
+			if v > 1 {
+				return true
+			}
+		}
+
+		start++
+		end++
+	}
 
 	return false
 }

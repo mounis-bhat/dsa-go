@@ -88,16 +88,19 @@ A comprehensive collection of coding interview problems from the popular [Neetco
 
 #### Progress Overview ([internal/neetcode150](internal/neetcode150/))
 
-| # | Problem | Difficulty | Pattern | Time | Space | Status |
-|---|---------|-----------|---------|------|-------|--------|
-| 1 | Two Sum | Easy | Hash Map | O(n) | O(n) | ✅ |
-| 2 | Valid Anagram | Easy | Frequency Count | O(n) | O(1) | ✅ |
-| 3 | Two Sum II | Medium | Two Pointers | O(n) | O(1) | ✅ |
-| 4 | Majority Element | Easy | Boyer-Moore/Hash Map | O(n) | O(1) | 🚧 |
+| #   | Problem               | Difficulty | Pattern                 | Time | Space | Status |
+| --- | --------------------- | ---------- | ----------------------- | ---- | ----- | ------ |
+| 1   | Two Sum               | Easy       | Hash Map                | O(n) | O(n)  | ✅     |
+| 2   | Valid Anagram         | Easy       | Frequency Count         | O(n) | O(1)  | ✅     |
+| 3   | Two Sum II            | Medium     | Two Pointers            | O(n) | O(1)  | ✅     |
+| 4   | Majority Element      | Easy       | Boyer-Moore/Hash Map    | O(n) | O(1)  | 🚧     |
+| 5   | Contains Duplicate II | Easy       | Sliding Window/Hash Map | O(n) | O(k)  | ✅     |
 
 #### Categories Covered:
-- **Arrays & Hashing**: Two Sum, Valid Anagram, Majority Element
+
+- **Arrays & Hashing**: Two Sum, Valid Anagram, Majority Element, Contains Duplicate II
 - **Two Pointers**: Two Sum II
+- **Sliding Window**: Contains Duplicate II
 
 For detailed problem descriptions, examples, and approaches, see the individual source files in [`internal/neetcode150/`](internal/neetcode150/).
 
@@ -156,6 +159,7 @@ make test-two-sum
 make test-two-sum-ii
 make test-valid-anagram
 make test-majority-element
+make test-contains-duplicate-ii
 ```
 
 ### Running the Application
@@ -210,12 +214,13 @@ go test -cover ./...
 
 ### Neetcode 150 Solutions
 
-| Problem           | Pattern         | Time Complexity | Space Complexity |
-| ----------------- | --------------- | --------------- | ---------------- |
-| Two Sum           | Hash Map        | O(n)            | O(n)             |
-| Two Sum II        | Two Pointers    | O(n)            | O(1)             |
-| Valid Anagram     | Frequency Count | O(n)            | O(1)             |
-| Majority Element  | Boyer-Moore     | O(n)            | O(1)             |
+| Problem               | Pattern         | Time Complexity | Space Complexity |
+| --------------------- | --------------- | --------------- | ---------------- |
+| Two Sum               | Hash Map        | O(n)            | O(n)             |
+| Two Sum II            | Two Pointers    | O(n)            | O(1)             |
+| Valid Anagram         | Frequency Count | O(n)            | O(1)             |
+| Majority Element      | Boyer-Moore     | O(n)            | O(1)             |
+| Contains Duplicate II | Sliding Window  | O(n)            | O(k)             |
 
 ## 🎯 Usage Examples
 
@@ -257,6 +262,9 @@ isAnagram := neetcode150.ValidAnagram("anagram", "nagaram") // Returns true
 
 // Majority Element problem
 majority := neetcode150.MajorityElement([]int{3, 2, 3}) // Returns 3
+
+// Contains Duplicate II problem
+hasDuplicateWithinK := neetcode150.ContainsDuplicateII([]int{1, 2, 3, 1}, 3) // Returns true
 ```
 
 ### Utility Functions Example

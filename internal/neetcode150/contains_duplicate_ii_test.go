@@ -215,7 +215,7 @@ func TestContainsDuplicateIIEdgeCases(t *testing.T) {
 
 	// Test boundary condition where difference is k+1
 	t.Run("Difference is k+1", func(t *testing.T) {
-		nums := []int{1, 0, 0, 0, 1}
+		nums := []int{1, 2, 3, 4, 1}
 		k := 3
 		got := neetcode150.ContainsDuplicateII(nums, k)
 		if got {
