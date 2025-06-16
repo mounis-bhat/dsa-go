@@ -1,5 +1,7 @@
 package neetcode150
 
+import "fmt"
+
 // TopKFrequent returns the k most frequent elements from the given array.
 // The answer can be returned in any order.
 //
@@ -23,5 +25,15 @@ package neetcode150
 // Note: Go uses container/heap package which requires implementing heap.Interface
 func TopKFrequent(nums []int, k int) []int {
 	// TODO: Implement top k frequent elements logic
+
+	frequencyMap := make(map[int]int)
+
+	for _, v := range nums {
+		count := frequencyMap[v]
+		frequencyMap[v] = count + 1
+	}
+
+	fmt.Println(frequencyMap)
+
 	return nil
 }
