@@ -6,7 +6,8 @@ A comprehensive implementation of data structures and algorithms in Go, featurin
 
 ```
 ├── cmd/
-│   └── main.go              # Main entry point
+│   └── main.go              # Main entry poin| Group Anagrams        | Hash Map/Sorting     | O(n×k×log k)    | O(n×k)           |
+| Top K Frequent        | Hash Map/Heap        | O(n log k)      | O(n)             |
 ├── internal/
 │   ├── avltree/             # AVL Tree implementation
 │   ├── binarytree/          # Binary Search Tree
@@ -99,13 +100,15 @@ A comprehensive collection of coding interview problems from the popular [Neetco
 | 4   | Majority Element      | Easy       | Boyer-Moore/Hash Map    | O(n)         | O(1)   | 🚧     |
 | 5   | Contains Duplicate II | Easy       | Sliding Window/Hash Map | O(n)         | O(k)   | ✅     |
 | 6   | Group Anagrams        | Medium     | Hash Map/String Sorting | O(n×k×log k) | O(n×k) | ✅     |
+| 7   | Top K Frequent        | Medium     | Hash Map/Heap           | O(n log k)   | O(n)   | 🚧     |
 
 #### Categories Covered:
 
-- **Arrays & Hashing**: Two Sum, Valid Anagram, Majority Element, Contains Duplicate II, Group Anagrams
+- **Arrays & Hashing**: Two Sum, Valid Anagram, Majority Element, Contains Duplicate II, Group Anagrams, Top K Frequent
 - **Two Pointers**: Two Sum II
 - **Sliding Window**: Contains Duplicate II
 - **String Processing**: Group Anagrams
+- **Heap/Priority Queue**: Top K Frequent
 
 For detailed problem descriptions, examples, and approaches, see the individual source files in [`internal/neetcode150/`](internal/neetcode150/).
 
@@ -166,6 +169,7 @@ make test-valid-anagram
 make test-majority-element
 make test-contains-duplicate-ii
 make test-group-anagrams
+make test-top-k-frequent
 ```
 
 ### Running the Application
@@ -298,6 +302,10 @@ hasDuplicateWithinK := neetcode150.ContainsDuplicateII([]int{1, 2, 3, 1}, 3) // 
 // Group Anagrams problem
 anagramGroups := neetcode150.GroupAnagrams([]string{"eat", "tea", "tan", "ate", "nat", "bat"})
 // Returns [["bat"], ["nat","tan"], ["ate","eat","tea"]] (order may vary)
+
+// Top K Frequent Elements problem
+topK := neetcode150.TopKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)
+// Returns [1, 2] (order may vary)
 ```
 
 ### Utility Functions Example
