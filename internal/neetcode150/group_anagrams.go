@@ -1,5 +1,9 @@
 package neetcode150
 
+import (
+	"slices"
+)
+
 // GroupAnagrams groups anagrams together from an array of strings.
 // An anagram is a word formed by rearranging the letters of another,
 // using all original letters exactly once.
@@ -18,5 +22,29 @@ package neetcode150
 // - Value: list of original words that match the sorted key
 func GroupAnagrams(strs []string) [][]string {
 	// TODO: Implement group anagrams logic
-	return nil
+	sortedStore := make(map[string][]string)
+
+	for _, v := range strs {
+		sorted := sortString(v)
+		if current, ok := sortedStore[sorted]; ok {
+			sortedStore[sorted] = append(current, v)
+		} else {
+			sortedStore[sorted] = []string{v}
+		}
+	}
+
+	var group [][]string
+
+	for _, v := range sortedStore {
+		group = append(group, v)
+	}
+
+	return group
+}
+
+func sortString(s string) string {
+	// Convert to slice of runes (to support Unicode characters)
+	r := []rune(s)
+	slices.Sort(r)
+	return string(r)
 }
