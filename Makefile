@@ -65,6 +65,9 @@ test-majority-element:
 test-contains-duplicate-ii:
 	$(GOTEST) -v ./internal/neetcode150 -run TestContainsDuplicateII
 
+test-group-anagrams:
+	$(GOTEST) -v ./internal/neetcode150 -run TestGroupAnagrams
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
@@ -78,4 +81,4 @@ deps:
 tidy:
 	$(GOMOD) tidy
 
-.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram test-two-sum-ii test-majority-element test-contains-duplicate-ii
+.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram test-two-sum-ii test-majority-element test-contains-duplicate-ii test-group-anagrams test-group-anagrams
