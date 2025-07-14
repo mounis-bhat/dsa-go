@@ -1,8 +1,5 @@
 {
-  "cSpell.words": [
-    "leetcode",
-    "nums"
-  ],
+  "cSpell.words": ["leetcode", "mounis", "neetcode", "nums"],
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
