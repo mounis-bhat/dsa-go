@@ -11,5 +11,17 @@ func ProductOfArrayExceptSelf(nums []int) []int {
 	// You can store left products in the result array first,
 	// then multiply with right products in the second pass
 
-	return nil
+	prod := make([]int, 0, len(nums))
+
+	for i := range nums {
+		currentProduct := 1
+		for j, v := range nums {
+			if i != j {
+				currentProduct = currentProduct * v
+			}
+		}
+		prod = append(prod, currentProduct)
+	}
+
+	return prod
 }
