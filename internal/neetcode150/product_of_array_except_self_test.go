@@ -56,7 +56,7 @@ func TestProductOfArrayExceptSelf(t *testing.T) {
 		{
 			name: "Negative numbers",
 			nums: []int{-2, -3, 4, -5},
-			want: []int{-60, -40, 30, -24},
+			want: []int{60, 40, -30, 24},
 		},
 		{
 			name: "All ones",

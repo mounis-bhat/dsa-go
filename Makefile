@@ -71,6 +71,9 @@ test-group-anagrams:
 test-top-k-frequent:
 	$(GOTEST) -v ./internal/neetcode150 -run TestTopKFrequent
 
+test-product-of-array-except-self:
+	$(GOTEST) -v ./internal/neetcode150 -run TestProductOfArrayExceptSelf
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
@@ -84,4 +87,4 @@ deps:
 tidy:
 	$(GOMOD) tidy
 
-.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram test-two-sum-ii test-majority-element test-contains-duplicate-ii test-group-anagrams test-top-k-frequent test-top-k-frequent
+.PHONY: all build test clean run deps tidy test-stack test-queue test-linkedlist test-binarytree test-avltree test-bubble test-selection test-neetcode150 test-two-sum test-valid-anagram test-two-sum-ii test-majority-element test-contains-duplicate-ii test-group-anagrams test-top-k-frequent test-product-of-array-except-self
