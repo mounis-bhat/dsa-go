@@ -74,6 +74,9 @@ test-top-k-frequent:
 test-product-of-array-except-self:
 	$(GOTEST) -v ./internal/neetcode150 -run TestProductOfArrayExceptSelf
 
+test-encode-decode-strings:
+	$(GOTEST) -v ./internal/neetcode150 -run TestEncodeDecode
+
 clean:
 	$(GOCLEAN)
 	$(RM) $(BINARY_NAME)
